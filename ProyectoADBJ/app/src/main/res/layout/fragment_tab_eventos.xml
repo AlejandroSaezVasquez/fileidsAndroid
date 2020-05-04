@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentEventos">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <CalendarView
+            android:padding="10dp"
+            android:id="@+id/calendarioEventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/calendario"/>
+
+        <Spinner
+            android:id="@+id/spTrainings"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:entries="@array/clases" />
+
+
+        <ListView
+            android:id="@+id/lvEventos"
+
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:entries="@array/clases"
+            android:scrollbarSize="8dp" />
+
+    </LinearLayout>
+
+</FrameLayout>
