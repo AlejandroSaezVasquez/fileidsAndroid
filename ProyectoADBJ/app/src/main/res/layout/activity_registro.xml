@@ -14,7 +14,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:orientation="vertical"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -22,17 +21,18 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.0"
+            android:background="@drawable/img_registro">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="2dp"
                 android:text="Únete a nosotros!"
                 android:textAlignment="center"
-                android:textColor="#25364F"
+                android:textColor="#fff"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="Nombre"
-                    android:textColor="#25364F"
+                    android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -58,9 +58,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/edit_round_border"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:textColor="#fff"
                     android:paddingLeft="20dp" />
 
             </LinearLayout>
@@ -77,7 +78,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="Apellidos"
-                    android:textColor="#25364F"
+                    android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -89,6 +90,7 @@
                     android:background="@drawable/edit_round_border"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:textColor="#fff"
                     android:paddingLeft="20dp" />
 
             </LinearLayout>
@@ -105,7 +107,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="Usuario"
-                    android:textColor="#25364F"
+                    android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -117,6 +119,7 @@
                     android:background="@drawable/edit_round_border"
                     android:ems="10"
                     android:inputType="textEmailAddress"
+                    android:textColor="#fff"
                     android:paddingLeft="20dp" />
             </LinearLayout>
 
@@ -133,7 +136,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="Contraseña"
-                    android:textColor="#25364F"
+                    android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -145,6 +148,7 @@
                     android:background="@drawable/edit_round_border"
                     android:ems="10"
                     android:inputType="textPassword"
+                    android:textColor="#fff"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -162,7 +166,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="Confirma tu Contraseña"
-                    android:textColor="#25364F"
+                    android:textColor="#fff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -173,7 +177,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/edit_round_border"
                     android:ems="10"
-
+                    android:textColor="#fff"
                     android:inputType="textPassword"
                     android:textAlignment="center" />
 
@@ -191,7 +195,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:text="Tu Plan"
-                    android:textColor="#25364F"
+                    android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -201,6 +205,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbarSize="8dp"
+                    android:textColor="#fff"
                     android:textSize="18sp"></Spinner>
 
             </LinearLayout>
@@ -217,7 +222,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Género"
-                    android:textColor="#25364F"
+                    android:textColor="#fff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -233,7 +238,7 @@
                         android:layout_height="wrap_content"
                         android:checked="true"
                         android:text="Masculino"
-                        android:textColor="#25364F"
+                        android:textColor="#fff"
                         android:textStyle="bold" />
 
                     <RadioButton
@@ -241,7 +246,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Femenino"
-                        android:textColor="#25364F"
+                        android:textColor="#fff"
                         android:textStyle="bold" />
                 </RadioGroup>
             </LinearLayout>

@@ -56,47 +56,47 @@
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
         android:id="@+id/dashTabLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gymFondo"
-        app:tabTextColor="@android:color/white"
-        app:tabMode="scrollable">
+        app:tabMode="scrollable"
+        app:tabTextColor="@android:color/white">
 
         <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/tabUser"
-            android:textSize="10dp"
-            android:text="Yo" />
-
-        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Yo"
+            android:textSize="10dp" />
+
+        <com.google.android.material.tabs.TabItem
             android:id="@+id/tabStats"
-            android:text="Mis Clases"
-            android:textSize="10dp"/>
-
-        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Registro"
+            android:textSize="10dp" />
+
+        <com.google.android.material.tabs.TabItem
             android:id="@+id/tabClases"
-            android:text="Mi Agenda"
-            android:textSize="10dp"/>
-
-        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Propiedades Docuementos"
+            android:textSize="10dp" />
+
+        <com.google.android.material.tabs.TabItem
             android:id="@+id/tabTrainers"
-            android:text="Trainers"
-            android:textSize="10dp"/>
-
-        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Docuemntos-Internos"
+            android:textSize="10dp" />
+
+        <com.google.android.material.tabs.TabItem
             android:id="@+id/tabMaquinas"
-            android:textSize="10dp"
-            android:text="Máquinas" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Docuemntos-Entregables"
+            android:textSize="10dp" />
 
     </com.google.android.material.tabs.TabLayout>
 

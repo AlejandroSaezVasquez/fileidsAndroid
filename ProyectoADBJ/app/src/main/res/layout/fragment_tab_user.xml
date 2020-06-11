@@ -13,7 +13,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/dashboard_background_blue"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -75,6 +74,15 @@
                 android:text="Desde 10/10/2018 a 10/10/2020"
                 android:textColor="@android:color/black"
                 android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/button12"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cerrar Sessión"
+                android:textAlignment="gravity"
+                android:textColor="#A81515" />
 
         </LinearLayout>
     </ScrollView>
