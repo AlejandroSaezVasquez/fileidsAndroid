@@ -61,11 +61,8 @@ public class fragmentUser extends Fragment {
 
         //Views y controles
         TextView lblNombre=view.findViewById(R.id.lblNombre);
-        TextView lblUserName=view.findViewById(R.id.lblUserName);
-        TextView lblPlan=view.findViewById(R.id.lblPlan);
         ImageView imgUserPhoto=view.findViewById(R.id.imgUserPhoto);
-        TextView lblEmail=view.findViewById(R.id.lblEmail);
-        TextView lblFechasPlan=view.findViewById(R.id.lblFechasPlan);
+
 
         // Viñeta superior
 
@@ -74,22 +71,15 @@ public class fragmentUser extends Fragment {
         Usuario user = dao.retrieveUser(activeUserName);
         // Nombre y apellido
         lblNombre.setText(user.getNombres() + " " + user.getApellidos());
-        // username
-        lblUserName.setText(activeUserName);
         // Foto del usuario
         int id = getResources().getIdentifier("com.example.proyectoadbj:drawable/" + user.getPathFoto(), null, null);
         imgUserPhoto.setImageResource(id);
-        // Tipo de plan
-        lblPlan.setText("Tu plan: "+user.getSubscripcion().getNombrePlan());
         // Fechas de plan
 
         String fechasPlan="Desde: "+user.getSubscripcion().getFechaInicio()+" hasta "
                 +user.getSubscripcion().getFechaFin();
 
-        lblFechasPlan.setText(fechasPlan);
 
-        // Email
-        lblEmail.setText(user.getEmail());
     }
 
     public fragmentUser() {
