@@ -1,6 +1,5 @@
 package com.example.proyectoadbj;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
 public class menuRegistro extends AppCompatActivity {
@@ -42,10 +40,10 @@ public class menuRegistro extends AppCompatActivity {
         spPagoPlanes = findViewById(R.id.spPagoPlanes);
 
         //Acceso a BD
-        final DAO dao = new DAO(menuRegistro.this);
+        final DAOSQLITE DAOSQLITE = new DAOSQLITE(menuRegistro.this);
 
         // Llenar spinner de planes
-        UIHelpers.fillSpinner(spPagoPlanes, dao.getPlanes(), menuRegistro.this);
+        UIHelpers.fillSpinner(spPagoPlanes, DAOSQLITE.getPlanes(), menuRegistro.this);
 
         btAceptarSub.setOnClickListener(new View.OnClickListener() {
             Stack<enumErrores> stackErrores = new Stack<>();
@@ -86,7 +84,7 @@ public class menuRegistro extends AppCompatActivity {
                 if (stackErrores.empty()) {
 
                     // Verificacion de usuario existente
-                    if (dao.authLogin(username, password)) {
+                    if (DAOSQLITE.authLogin(username, password)) {
                         // User existe.
                         errorHandler.Toaster(enumErrores.usuarioYaExiste, menuRegistro.this);
                     } else {
@@ -105,7 +103,7 @@ public class menuRegistro extends AppCompatActivity {
                         // Asignar plan al usuario
                         int p=spPagoPlanes.getSelectedItemPosition();
                         System.out.println(p);
-                        user.setSubscripcion(dao.getPlanFromId(p));
+                        user.setSubscripcion(DAOSQLITE.getPlanFromId(p));
 
                         System.out.println("Registrando: "+user.getSubscripcion().getNombrePlan());
 

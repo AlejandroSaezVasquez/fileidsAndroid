@@ -3,14 +3,10 @@ package com.example.proyectoadbj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 public class menuPago extends AppCompatActivity {
@@ -25,7 +21,7 @@ public class menuPago extends AppCompatActivity {
     private TextView lbPlanRegistrar;
     private TextView lbNombreRegistrar;
 
-    private DAO dao;
+    private DAOSQLITE DAOSQLITE;
     private Usuario user;
 
     @Override
@@ -60,7 +56,7 @@ public class menuPago extends AppCompatActivity {
         lbPlanRegistrar.setText("Plan: "+user.getSubscripcion().getNombrePlan());
         lbPrecioRegistrar.setText(UIHelpers.moneyFormatter(user.getSubscripcion().getPrecioAnual()));
 
-        dao= new DAO(menuPago.this);
+        DAOSQLITE = new DAOSQLITE(menuPago.this);
 
         btNoPagar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,9 +76,9 @@ public class menuPago extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (dao.getIdFromUsername(user.getUsername())==-1){
+                if (DAOSQLITE.getIdFromUsername(user.getUsername())==-1){
                     // usuario no existe, registrar.
-                    boolean flag=dao.registerUser(user);
+                    boolean flag= DAOSQLITE.registerUser(user);
                     if (flag){
                         errorHandler.Toaster(enumErrores.registroExitoso,menuPago.this);
                         btPagar.setEnabled(false);

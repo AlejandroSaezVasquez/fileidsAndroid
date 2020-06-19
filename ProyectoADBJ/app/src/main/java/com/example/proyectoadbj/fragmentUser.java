@@ -67,8 +67,8 @@ public class fragmentUser extends Fragment {
         // Viñeta superior
 
         // Conexion a BD.
-        DAO dao = new DAO(container.getContext());
-        Usuario user = dao.retrieveUser(activeUserName);
+        DAOSQLITE DAOSQLITE = new DAOSQLITE(container.getContext());
+        Usuario user = DAOSQLITE.retrieveUser(activeUserName);
         // Nombre y apellido
         lblNombre.setText(user.getNombres() + " " + user.getApellidos());
         // Foto del usuario

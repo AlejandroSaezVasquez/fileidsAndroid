@@ -1,6 +1,5 @@
 package com.example.proyectoadbj;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DAO dao = new DAO(MainActivity.this);
+                DAOSQLITE DAOSQLITE = new DAOSQLITE(MainActivity.this);
 
                 String nombreUsuario=txUser.getText().toString().trim();
                 String passUsuario=txPassword.getText().toString().trim();
@@ -48,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
                     errorHandler.Toaster(enumErrores.sinPassword, MainActivity.this);
                 } else {
 
-                    if (dao.authLogin(nombreUsuario,passUsuario)){
+                    if (DAOSQLITE.authLogin(nombreUsuario,passUsuario)){
                         // Login succesful
                         txUser.setText("");
                         txPassword.setText("");
                         Intent aDashboard = new Intent(MainActivity.this, Dashboard.class);
                         // Obtener un objeto con el usuario logeado para transferirlo al dashboard
-                        aDashboard.putExtra("user",dao.retrieveUser(nombreUsuario));
+                        aDashboard.putExtra("user", DAOSQLITE.retrieveUser(nombreUsuario));
                         startActivity(aDashboard);
                     }else{
                         // Usuario no existe.
