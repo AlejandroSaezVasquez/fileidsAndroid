@@ -1,4 +1,4 @@
 package com.example.proyectoadbj;
 
-public class DAO {
+public class Ruta {
 }
