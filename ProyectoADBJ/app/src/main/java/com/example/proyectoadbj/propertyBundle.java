@@ -2,6 +2,9 @@ package com.example.proyectoadbj;
 
 public class propertyBundle {
 
+    // Bundle de propiedades personalizadas.
+    private DAO dao = new DAO();
+
     public propertyBundle(){
 
     }
@@ -18,7 +21,10 @@ public class propertyBundle {
     private int idTipoEntregable;
     private int idProyecto;
 
+
+    // Valores campos combobox (desde BD)
     private String extension;
+
 
     public String getId() {
         return id;

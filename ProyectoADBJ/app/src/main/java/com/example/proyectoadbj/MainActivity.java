@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (nombreUsuario.isEmpty()) {
                     //No ingresa user
-                    errorHandler.Toaster(enumErrores.sinNombre, MainActivity.this);
+                    errorHandler.Toaster(enumMensajes.sinNombre, MainActivity.this);
                 } else if (passUsuario.isEmpty()) {
                     // No ingresa password
-                    errorHandler.Toaster(enumErrores.sinPassword, MainActivity.this);
+                    errorHandler.Toaster(enumMensajes.sinPassword, MainActivity.this);
                 } else {
 
                     if (DAOSQLITE.authLogin(nombreUsuario,passUsuario)){
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(aDashboard);
                     }else{
                         // Usuario no existe.
-                        errorHandler.Toaster(enumErrores.loginError, MainActivity.this);
+                        errorHandler.Toaster(enumMensajes.loginError, MainActivity.this);
                     }
 
                 }

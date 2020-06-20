@@ -80,14 +80,14 @@ public class menuPago extends AppCompatActivity {
                     // usuario no existe, registrar.
                     boolean flag= DAOSQLITE.registerUser(user);
                     if (flag){
-                        errorHandler.Toaster(enumErrores.registroExitoso,menuPago.this);
+                        errorHandler.Toaster(enumMensajes.registroExitoso,menuPago.this);
                         btPagar.setEnabled(false);
                     }else{
-                        errorHandler.Toaster(enumErrores.errorDeRegistro,menuPago.this);
+                        errorHandler.Toaster(enumMensajes.errorDeRegistro,menuPago.this);
                     }
                 }else{
                     //usuario ya existe
-                    errorHandler.Toaster(enumErrores.usuarioYaExiste,menuPago.this);
+                    errorHandler.Toaster(enumMensajes.usuarioYaExiste,menuPago.this);
                 }
 
 

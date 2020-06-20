@@ -46,7 +46,7 @@ public class menuRegistro extends AppCompatActivity {
         UIHelpers.fillSpinner(spPagoPlanes, DAOSQLITE.getPlanes(), menuRegistro.this);
 
         btAceptarSub.setOnClickListener(new View.OnClickListener() {
-            Stack<enumErrores> stackErrores = new Stack<>();
+            Stack<enumMensajes> stackErrores = new Stack<>();
 
             @Override
             public void onClick(View v) {
@@ -56,29 +56,29 @@ public class menuRegistro extends AppCompatActivity {
                 String username = txUserNameRegistro.getText().toString().trim();
 
                 if (txNombres.getText().toString().trim().isEmpty()) {
-                    stackErrores.add(enumErrores.sinNombre);
+                    stackErrores.add(enumMensajes.sinNombre);
                 } else {
-                    stackErrores.remove(enumErrores.sinNombre);
+                    stackErrores.remove(enumMensajes.sinNombre);
                 }
                 if (txApellidos.getText().toString().trim().isEmpty()) {
-                    stackErrores.add(enumErrores.sinApellido);
+                    stackErrores.add(enumMensajes.sinApellido);
                 } else {
-                    stackErrores.remove(enumErrores.sinApellido);
+                    stackErrores.remove(enumMensajes.sinApellido);
                 }
                 if (username.isEmpty()) {
-                    stackErrores.add(enumErrores.sinUserName);
+                    stackErrores.add(enumMensajes.sinUserName);
                 } else {
-                    stackErrores.remove(enumErrores.sinUserName);
+                    stackErrores.remove(enumMensajes.sinUserName);
                 }
                 if (password.isEmpty()) {
-                    stackErrores.add(enumErrores.sinPassword);
+                    stackErrores.add(enumMensajes.sinPassword);
                 } else {
-                    stackErrores.remove(enumErrores.sinPassword);
+                    stackErrores.remove(enumMensajes.sinPassword);
                 }
                 if (password.compareTo(rePassword) != 0) {
-                    stackErrores.add(enumErrores.passwordNoCoincide);
+                    stackErrores.add(enumMensajes.passwordNoCoincide);
                 } else {
-                    stackErrores.remove(enumErrores.passwordNoCoincide);
+                    stackErrores.remove(enumMensajes.passwordNoCoincide);
                 }
 
                 if (stackErrores.empty()) {
@@ -86,7 +86,7 @@ public class menuRegistro extends AppCompatActivity {
                     // Verificacion de usuario existente
                     if (DAOSQLITE.authLogin(username, password)) {
                         // User existe.
-                        errorHandler.Toaster(enumErrores.usuarioYaExiste, menuRegistro.this);
+                        errorHandler.Toaster(enumMensajes.usuarioYaExiste, menuRegistro.this);
                     } else {
                         // Todo ok para registrar al usuario, pues no existe
 
