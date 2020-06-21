@@ -5,62 +5,46 @@ import android.os.Parcelable;
 
 public class Usuario implements Parcelable {
 
-    private int id;
-    private String nombres,apellidos,password,genero,email,pathFoto,username;
-    private Subscripcion subscripcion;
+    private String login;
+    private String nombre;
 
-    public Usuario(){
-        id=-1;
+    public String getApellido() {
+        return apellido;
     }
 
-
-    public int getId() {
-        return id;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    private String apellido;
+    private String password;
+
+    public Usuario(String login, String nombre, String apellido, String password) {
+        this.login = login;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.password = password;
+
     }
 
-    public String getUsername() {
-        return username;
+    public Usuario() {
+
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getLogin() {
+        return login;
     }
 
-
-    public String getPathFoto() {
-        return pathFoto;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public void setPathFoto(String pathFoto) {
-        this.pathFoto = pathFoto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getPassword() {
@@ -71,25 +55,6 @@ public class Usuario implements Parcelable {
         this.password = password;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-
-
-    public Subscripcion getSubscripcion() {
-        return subscripcion;
-    }
-
-    public void setSubscripcion(Subscripcion subscripcion) {
-        this.subscripcion = subscripcion;
-    }
-
-
     @Override
     public int describeContents() {
         return 0;
@@ -97,30 +62,20 @@ public class Usuario implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.id);
-        dest.writeString(this.nombres);
-        dest.writeString(this.apellidos);
+        dest.writeString(this.login);
+        dest.writeString(this.nombre);
+        dest.writeString(this.apellido);
         dest.writeString(this.password);
-        dest.writeString(this.genero);
-        dest.writeString(this.email);
-        dest.writeString(this.pathFoto);
-        dest.writeString(this.username);
-        dest.writeParcelable(this.subscripcion, flags);
     }
 
     protected Usuario(Parcel in) {
-        this.id = in.readInt();
-        this.nombres = in.readString();
-        this.apellidos = in.readString();
+        this.login = in.readString();
+        this.nombre = in.readString();
+        this.apellido = in.readString();
         this.password = in.readString();
-        this.genero = in.readString();
-        this.email = in.readString();
-        this.pathFoto = in.readString();
-        this.username = in.readString();
-        this.subscripcion = in.readParcelable(Subscripcion.class.getClassLoader());
     }
 
-    public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {
+    public static final Parcelable.Creator<Usuario> CREATOR = new Parcelable.Creator<Usuario>() {
         @Override
         public Usuario createFromParcel(Parcel source) {
             return new Usuario(source);

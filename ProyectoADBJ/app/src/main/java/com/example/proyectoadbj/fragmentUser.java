@@ -66,7 +66,7 @@ public class fragmentUser extends Fragment {
 
         // Viñeta superior
 
-        // Conexion a BD.
+        /*
         DAOSQLITE DAOSQLITE = new DAOSQLITE(container.getContext());
         Usuario user = DAOSQLITE.retrieveUser(activeUserName);
         // Nombre y apellido
@@ -77,7 +77,7 @@ public class fragmentUser extends Fragment {
         // Fechas de plan
 
         String fechasPlan="Desde: "+user.getSubscripcion().getFechaInicio()+" hasta "
-                +user.getSubscripcion().getFechaFin();
+                +user.getSubscripcion().getFechaFin();*/
 
 
     }

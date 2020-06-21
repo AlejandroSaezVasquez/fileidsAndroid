@@ -2,7 +2,6 @@ package com.example.proyectoadbj;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 public class Dashboard extends AppCompatActivity {
@@ -28,11 +26,11 @@ public class Dashboard extends AppCompatActivity {
         TextView lblUserDash = findViewById(R.id.lblUserDash);
         TextView lblNombreDash=findViewById(R.id.lblNombreDash);
         ImageView imgUserDash=findViewById(R.id.imgUserDash);
-        lblUserDash.setText(user.getUsername());
-        lblNombreDash.setText(user.getNombres() + " " + user.getApellidos());
+        lblUserDash.setText(user.getNombre()+" "+user.getApellido());
+        lblNombreDash.setText(user.getLogin());
         // Foto del usuario
-        int id = getResources().getIdentifier("com.example.proyectoadbj:drawable/" + user.getPathFoto(), null, null);
-        imgUserDash.setImageResource(id);
+        //int id = getResources().getIdentifier("com.example.proyectoadbj:drawable/" + user.getPathFoto(), null, null);
+        //imgUserDash.setImageResource(id);
 
         //TabLayout
         TabLayout dashTabLayout = findViewById(R.id.dashTabLayout);
@@ -41,7 +39,7 @@ public class Dashboard extends AppCompatActivity {
 
 
         // Obtener el ViewPager y setear su PagerAdapter para que pueda mostrar elementos
-        PagerAdapter pagerAdapter = new fragmentPagerAdapter(getSupportFragmentManager(), dashTabLayout.getTabCount(), user.getUsername());
+        PagerAdapter pagerAdapter = new fragmentPagerAdapter(getSupportFragmentManager(), dashTabLayout.getTabCount(), user.getNombre());
         dashViewPager.setAdapter(pagerAdapter);
 
         // Asigna el viewpager al viewlayout
