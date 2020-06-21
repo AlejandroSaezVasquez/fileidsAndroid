@@ -112,6 +112,9 @@ public class propertyBundle {
     {
         if (id!=null)
         {
+            String strId=id;
+            strId=String.format("%06s", strId);
+            //return String.format("%06s", inputString)
             //return id.PadLeft(6, '0').Insert(3, "-");  Reemplazar esta funcion.
         }
         return "";

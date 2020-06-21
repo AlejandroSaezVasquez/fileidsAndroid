@@ -34,26 +34,23 @@ public class MainActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DAOSQLITE DAOSQLITE = new DAOSQLITE(MainActivity.this);
+                DAO dao = new DAO(MainActivity.this);
 
                 String nombreUsuario=txUser.getText().toString().trim();
                 String passUsuario=txPassword.getText().toString().trim();
 
-                if (nombreUsuario.isEmpty()) {
+                if (nombreUsuario.isEmpty() || passUsuario.isEmpty()) {
                     //No ingresa user
-                    errorHandler.Toaster(enumMensajes.sinNombre, MainActivity.this);
-                } else if (passUsuario.isEmpty()) {
-                    // No ingresa password
-                    errorHandler.Toaster(enumMensajes.sinPassword, MainActivity.this);
+                    errorHandler.Toaster(enumMensajes.loginError, MainActivity.this);
                 } else {
 
-                    if (DAOSQLITE.authLogin(nombreUsuario,passUsuario)){
+                    if (dao.authLogin(nombreUsuario,passUsuario)){
                         // Login succesful
                         txUser.setText("");
                         txPassword.setText("");
                         Intent aDashboard = new Intent(MainActivity.this, Dashboard.class);
                         // Obtener un objeto con el usuario logeado para transferirlo al dashboard
-                        aDashboard.putExtra("user", DAOSQLITE.retrieveUser(nombreUsuario));
+                        aDashboard.putExtra("user", nombreUsuario);
                         startActivity(aDashboard);
                     }else{
                         // Usuario no existe.

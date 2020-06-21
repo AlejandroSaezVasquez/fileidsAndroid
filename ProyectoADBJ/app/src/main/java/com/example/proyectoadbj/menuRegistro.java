@@ -40,7 +40,7 @@ public class menuRegistro extends AppCompatActivity {
         spPagoPlanes = findViewById(R.id.spPagoPlanes);
 
         //Acceso a BD
-        final DAOSQLITE DAOSQLITE = new DAOSQLITE(menuRegistro.this);
+        /*final DAOSQLITE DAOSQLITE = new DAOSQLITE(menuRegistro.this);
 
         // Llenar spinner de planes
         UIHelpers.fillSpinner(spPagoPlanes, DAOSQLITE.getPlanes(), menuRegistro.this);
@@ -126,6 +126,6 @@ public class menuRegistro extends AppCompatActivity {
                 startActivity(aMenuLogin);
             }
         });
-
+*/
     }
 }

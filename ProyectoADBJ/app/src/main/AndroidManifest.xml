@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Dashboard"></activity>
-        <activity android:name=".menuPago" />
         <activity android:name=".menuRegistro" />
         <activity android:name=".MainActivity">
 

@@ -14,7 +14,9 @@ public class queryDump {
     //Esto no es un view pero puede serlo.
     public String nombresProyectos="select upper(descriptores) from proyectos";
     public String viewNombresArchivosEntregables="select*from archivos";
-    
+
+
+    // PROCEDIMIENTOS ALMACENADOS
     public String execProyectoDesdeId(String id)
     {
          return "exec getNombreProyecto '" + id + "'";
@@ -99,6 +101,14 @@ public class queryDump {
          return "exec buscarArchivosLocalesLike '" + keywords + "'";
     }
 
+    public String execObtenerUsuario(String userlogin) {
+        return "exec execObtenerUsuario '"+userlogin+"'";
+    }
+
+    public String execLogin(String userlogin,String pass) {
+        return "exec execLogin '"+userlogin+"','"+pass+"'";
+    }
+
     //Convertir a procedimiento almacenado execIdFromExtension
     public String consultaIdFromExtension(String extension)
     {
@@ -122,8 +132,6 @@ public class queryDump {
     {
          return "select count(*) id from archivos where id ='" + id + "'";
     }
-
-
 
 
 }
