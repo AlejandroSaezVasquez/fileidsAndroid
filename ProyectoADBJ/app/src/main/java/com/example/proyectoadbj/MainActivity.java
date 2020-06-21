@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txUser;
     private EditText txPassword;
     private TextView txRegistrarse;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +37,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DAO dao = new DAO(MainActivity.this);
+                Usuario user=new Usuario();
+                user.setLogin(txUser.getText().toString().trim());
+                user.setPassword(txPassword.getText().toString().trim());
+                user=dao.setUser(user);
 
-                String nombreUsuario=txUser.getText().toString().trim();
-                String passUsuario=txPassword.getText().toString().trim();
-
-                if (nombreUsuario.isEmpty() || passUsuario.isEmpty()) {
+                if (user.getLogin().isEmpty() || user.getPassword().isEmpty()) {
                     //No ingresa user
                     errorHandler.Toaster(enumMensajes.loginError, MainActivity.this);
                 } else {
 
-                    if (dao.authLogin(nombreUsuario,passUsuario)){
-                        // Login succesful
+                    if (dao.authLogin(user.getLogin(),user.getPassword())){
+                        // Login succesful, limpiar pantalla.
                         txUser.setText("");
                         txPassword.setText("");
                         Intent aDashboard = new Intent(MainActivity.this, Dashboard.class);
-                        // Obtener un objeto con el usuario logeado para transferirlo al dashboard
-                        aDashboard.putExtra("user", nombreUsuario);
+
+                        aDashboard.putExtra("user", user);
                         startActivity(aDashboard);
                     }else{
                         // Usuario no existe.

@@ -2,7 +2,6 @@ package com.example.proyectoadbj;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 public class Dashboard extends AppCompatActivity {
@@ -28,8 +26,8 @@ public class Dashboard extends AppCompatActivity {
         TextView lblUserDash = findViewById(R.id.lblUserDash);
         TextView lblNombreDash=findViewById(R.id.lblNombreDash);
         ImageView imgUserDash=findViewById(R.id.imgUserDash);
-        lblUserDash.setText(user.getNombre());
-        lblNombreDash.setText(user.getEmail());
+        lblUserDash.setText(user.getNombre()+" "+user.getApellido());
+        lblNombreDash.setText(user.getLogin());
         // Foto del usuario
         //int id = getResources().getIdentifier("com.example.proyectoadbj:drawable/" + user.getPathFoto(), null, null);
         //imgUserDash.setImageResource(id);
