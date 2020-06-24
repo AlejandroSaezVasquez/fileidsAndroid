@@ -51,14 +51,12 @@ public class MainActivity extends AppCompatActivity {
                         txUser.setText("");
                         txPassword.setText("");
                         Intent aDashboard = new Intent(MainActivity.this, Dashboard.class);
-
                         aDashboard.putExtra("user", user);
                         startActivity(aDashboard);
                     }else{
                         // Usuario no existe.
                         errorHandler.Toaster(enumMensajes.loginError, MainActivity.this);
                     }
-
                 }
             }
         });

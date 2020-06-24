@@ -176,7 +176,7 @@ tools:context=".fragmentRegistro">
 
 
                 <Spinner
-                    android:id="@+id/spextesionwin"
+                    android:id="@+id/spExtesionWin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
@@ -205,7 +205,7 @@ tools:context=".fragmentRegistro">
 
 
                 <Spinner
-                    android:id="@+id/sptipodoc"
+                    android:id="@+id/spTipoDocumentos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
@@ -234,7 +234,7 @@ tools:context=".fragmentRegistro">
 
 
                 <Spinner
-                    android:id="@+id/spproyecto"
+                    android:id="@+id/spProyecto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
@@ -355,7 +355,7 @@ tools:context=".fragmentRegistro">
                 android:padding="5dp">
 
                 <Button
-                    android:id="@+id/btAceptarSub"
+                    android:id="@+id/btAceptar"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
@@ -367,7 +367,7 @@ tools:context=".fragmentRegistro">
                     android:textSize="18dp" />
 
                 <Button
-                    android:id="@+id/btCancelarSub"
+                    android:id="@+id/btCancelar"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"

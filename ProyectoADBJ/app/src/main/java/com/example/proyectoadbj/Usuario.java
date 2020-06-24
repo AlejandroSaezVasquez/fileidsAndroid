@@ -16,7 +16,6 @@ public class Usuario implements Parcelable {
     private String login;
     private String nombre;
 
-
     public String getApellido() {
         return apellido;
     }
