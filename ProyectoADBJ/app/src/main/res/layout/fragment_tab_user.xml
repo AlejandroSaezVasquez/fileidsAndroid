@@ -15,6 +15,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
+            <TextView
+                android:id="@+id/lblBienvenido"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:text="Bienvenido:"
+                android:textAlignment="center"
+                android:textColor="#1B4F72"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/lblNombre"
@@ -23,11 +35,11 @@
                 android:shadowColor="@color/text_shadow"
                 android:shadowDx="0"
                 android:shadowDy="0"
-                android:shadowRadius="8"
+                android:shadowRadius="1"
                 android:text="@string/nombreApellido"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="35sp" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/imgUserPhoto"
@@ -37,11 +49,11 @@
                 android:src="@drawable/img1"/>
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/buttonCerrarSesion"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cerrar Sessión"
+                android:text="Cerrar Sesión"
                 android:textAlignment="gravity"
                 android:textColor="#A81515"
                 android:textSize="18sp" />

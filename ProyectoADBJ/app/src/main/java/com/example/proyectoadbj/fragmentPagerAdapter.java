@@ -11,7 +11,7 @@ public class fragmentPagerAdapter extends FragmentPagerAdapter {
     private int numTabs;
     private String activeUserName;
 
-    private String tabTitles[] = new String[] { "USUARIO", "REGISTRO", "PROPIEDADES DOCUMENTOS","DOCUMENTOS-INTERNOS","DOCUMENTOS-ENTREGABLES" };
+    private String tabTitles[] = new String[] { "USUARIO", "REGISTRO", "PROPIEDADES DOCUMENTOS","DOCUMENTOS SERVER","VISUALIZADOR" };
 
 
     public fragmentPagerAdapter(FragmentManager fm, int numTabs,String activeUserName) {

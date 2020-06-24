@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         // Instanciar botones y controles
 
         btLogin = findViewById(R.id.btLogin);
-        txRegistrarse = findViewById(R.id.txRegistrarse);
         txUser = findViewById(R.id.txUser);
         txPassword = findViewById(R.id.txPassword);
 
@@ -63,15 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        txRegistrarse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent aMenuSubs = new Intent(MainActivity.this, menuRegistro.class);
-                startActivity(aMenuSubs);
-            }
-        });
-
 
     }
 }

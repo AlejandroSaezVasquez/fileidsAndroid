@@ -1,6 +1,7 @@
 package com.example.proyectoadbj;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -9,6 +10,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +21,9 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class fragmentUser extends Fragment {
+
+    Button buttonCerrarSesion;
+    Intent intent;
 
     // Parametros
     private String activeUserName;
@@ -62,6 +69,14 @@ public class fragmentUser extends Fragment {
         //Views y controles
         TextView lblNombre=view.findViewById(R.id.lblNombre);
         ImageView imgUserPhoto=view.findViewById(R.id.imgUserPhoto);
+        buttonCerrarSesion= (Button) view.findViewById(R.id.buttonCerrarSesion);
+        buttonCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                botonvolver();
+            }
+        });
+
 
 
         // Viñeta superior
@@ -81,6 +96,11 @@ public class fragmentUser extends Fragment {
 
 
     }
+
+    public void botonvolver(){
+        startActivity(intent);
+    }
+
 
     public fragmentUser() {
 
