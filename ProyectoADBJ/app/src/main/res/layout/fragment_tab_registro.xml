@@ -24,7 +24,7 @@ tools:context=".fragmentRegistro">
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="DWGID/PARTID/DOCID"
+                    android:text="ID"
                     android:textColor="#0F0F0F"
                     android:textSize="18sp"
                     android:layout_marginLeft="20dp"/>
@@ -312,7 +312,7 @@ tools:context=".fragmentRegistro">
                 android:padding="5dp">
 
                 <Button
-                    android:id="@+id/btlimpiar"
+                    android:id="@+id/btLimpiar"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
@@ -323,7 +323,7 @@ tools:context=".fragmentRegistro">
                     android:textSize="18dp" />
 
                 <Button
-                    android:id="@+id/btmoficar"
+                    android:id="@+id/btModificar"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
@@ -334,13 +334,13 @@ tools:context=".fragmentRegistro">
                     android:textSize="18dp" />
 
                 <Button
-                    android:id="@+id/btregistro"
+                    android:id="@+id/btNuevo"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/edit_round"
-                    android:text="REGISTRO"
+                    android:text="NUEVO"
                     android:textColor="#25364F"
                     android:textSize="18dp" />
 
@@ -362,7 +362,7 @@ tools:context=".fragmentRegistro">
                     android:layout_weight="1"
                     android:background="@drawable/edit_round"
                     android:backgroundTint="#3F51B5"
-                    android:text="SIGUIENTE"
+                    android:text="ACEPTAR"
                     android:textColor="#25364F"
                     android:textSize="18dp" />
 
@@ -374,7 +374,7 @@ tools:context=".fragmentRegistro">
                     android:layout_weight="1"
                     android:background="@drawable/edit_round"
                     android:backgroundTint="#ee5253"
-                    android:text="Cancelar"
+                    android:text="CANCELAR"
                     android:textColor="#25364F"
                     android:textSize="18dp" />
 

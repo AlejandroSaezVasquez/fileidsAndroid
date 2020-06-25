@@ -205,4 +205,56 @@ public class DAO {
         return user;
 
     }
+
+    public boolean updateRecord(propertyBundle pb) {
+
+        boolean result=false;
+        String query=q.execUpdateArchivos(pb);
+        try {
+            conectar();
+            comando = connection.createStatement();
+            result=comando.execute(query);
+            comando.close();
+            desconectar();
+            return result;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            errorHandler.Toaster(enumMensajes.errorSQL, miContexto);
+        }
+        return false;
+    }
+
+    public propertyBundle addRecord(propertyBundle pb) {
+
+        String query=q.execInsertFileProperties(pb);
+        pb.setId(singleReturnQuery(query));
+        query=q.execInsertFileProjectAssociations(pb);
+        singleReturnQuery(query);
+        return pb;
+    }
+
+    public propertyBundle getPropertyBundleFromDB(propertyBundle pb) {
+
+        ArrayList<String> fp=new ArrayList<>();
+        ArrayList<String> fpa=new ArrayList<>();
+        // Propiedades de archivo
+        String query = q.execGetFilePropertiesFromId(pb.getId());
+        fp=genericOneRowQuery(query);
+        pb.setDescriptorEs(fp.get(0));
+        pb.setDescriptorEn(fp.get(1));
+        pb.setOemsku(fp.get(2));
+        pb.setDescriptorExtra(fp.get(3));
+        pb.setExtension(fp.get(4));
+        pb.setIdExtension(Integer.parseInt(fp.get(5))); //string a integer
+
+        //Asociaciones a proyectos
+        query = q.execGetFilePropertiesFromId(pb.getId());
+        fpa=genericOneRowQuery(query);
+
+        pb.setIdProyecto(Integer.parseInt(fpa.get(4)));
+        pb.setIdTipoEntregable(Integer.parseInt(fpa.get(3)));
+
+        return pb;
+
+    }
 }

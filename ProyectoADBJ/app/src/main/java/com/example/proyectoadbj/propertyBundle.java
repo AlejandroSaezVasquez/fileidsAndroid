@@ -112,6 +112,8 @@ public class propertyBundle {
     {
         if (id!=null)
         {
+            /// Buscar forma de retornar valor formateado.
+            ///1   000-001     1560   001-560
             String strId=id;
             strId=String.format("%06s", strId);
             //return String.format("%06s", inputString)
