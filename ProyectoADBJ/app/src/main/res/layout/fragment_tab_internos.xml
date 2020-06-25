@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentInternos">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/txTitleID"
+                android:layout_width="200dp"
+                android:background="#0C0C0C"
+                android:text="ID"
+                android:textColor="@color/text_shadow_white"
+                android:textStyle="bold"
+                android:padding="3dip" />
+            <TextView
+                android:id="@+id/txTitleTIPO"
+                android:layout_width="0dp"
+                android:background="#0C0C0C"
+                android:text="TIPO"
+                android:textColor="@color/text_shadow_white"
+                android:textStyle="bold"
+                android:padding="3dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:gravity="right"
+                android:padding="3dip" />
+            <TextView
+                android:gravity="right"
+                android:padding="3dip" />
+        </TableRow>
+
+
+    </TableLayout>
+
+</FrameLayout>

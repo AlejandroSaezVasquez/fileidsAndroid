@@ -11,7 +11,7 @@ public class fragmentPagerAdapter extends FragmentPagerAdapter {
     private int numTabs;
     private String activeUserName;
 
-    private String tabTitles[] = new String[] { "USUARIO", "REGISTRO", "PROPIEDADES DOCUMENTOS" };
+    private String tabTitles[] = new String[] { "USUARIO", "REGISTRO", "PROPIEDADES DOCUMENTOS","DOCUMENTOS-INTERNOS","DOCUMENTOS-ENTREGABLES" };
 
 
     public fragmentPagerAdapter(FragmentManager fm, int numTabs,String activeUserName) {
@@ -31,9 +31,13 @@ public class fragmentPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return fragmentUser.crearFragmentUser(activeUserName);
             case 1:
-                return fragmentRegistro.crearFragmentRegistro(activeRegistro);
+                return new fragmentRegistro();
             case 2:
                 return new fragmentPropiedades();
+            case 3:
+                return new fragmentInternos();
+            case 4:
+                return new fragmentEntregables();
             default:
                 return null;
         }

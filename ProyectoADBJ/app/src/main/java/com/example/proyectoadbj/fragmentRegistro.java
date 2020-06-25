@@ -71,7 +71,7 @@ public class fragmentRegistro extends Fragment {
 
         // Instanciar botones y controles
 
-        TextView txId=view.findViewById(R.id.txID);
+        final TextView txId=view.findViewById(R.id.txID);
         TextView txDescriptores=view.findViewById(R.id.txDescriptores);
         TextView txDescriptoren=view.findViewById(R.id.txDescriptoren);
         TextView txOemsku=view.findViewById(R.id.txOemsku);
@@ -176,7 +176,7 @@ public class fragmentRegistro extends Fragment {
 
     }
 
-    DAO dao = new DAO(fragmentRegistro.this);
+    DAO dao = new DAO();
     queryDump q = new queryDump();
     propertyBundle pb=new propertyBundle();
 
@@ -331,7 +331,7 @@ public class fragmentRegistro extends Fragment {
         }
         else
         {
-            errorHandler.Toaster(enumMensajes.registroNoExiste,fragmentRegistro.this);
+            //errorHandler.Toaster(enumMensajes.registroNoExiste,fragmentRegistro.this);
             limpiarForm();
         }
     }
