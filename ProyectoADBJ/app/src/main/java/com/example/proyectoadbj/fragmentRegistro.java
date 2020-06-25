@@ -2,44 +2,101 @@ package com.example.proyectoadbj;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-public class fragmentRegistro extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class fragmentRegistro extends Fragment {
 
-    private EditText txId,txDescriptores,txDescriptoren,txOemsku,txdescriptorExtra,txnomArchivo,txnomEntregable;
-    private Spinner spExtensionWin,spTipoDocumentos,spProyecto;
-    private Button btLimpiar,btModificar,btNuevo,btAceptar,btCancelar;
+   EditText txId,txDescriptores,txDescriptoren,txOemsku,txdescriptorExtra,txnomArchivo,txnomEntregable;
+   Spinner spExtensionWin,spTipoDocumentos,spProyecto;
+   Button btLimpiar,btModificar,btNuevo,btAceptar,btCancelar;
+   ImageButton Imgbtbuscar;
 
     public fragmentRegistro() {
         // Required empty public constructor
     }
 
+    // Parametros
+    private String activeRegistro;
+
+
+    // Constructor para crear instancias de este fragmento
+    public static fragmentRegistro crearFragmentRegistro(String activeRegistro){
+        fragmentRegistro frag=new fragmentRegistro();
+        // Crear un bundle de argumentos para inyectar en el fragmento
+        Bundle argumentos=new Bundle();
+        // Acá se pueden insertar tantos argumentos como sea necesario en pares key-value
+        argumentos.putString("activeRegistro",activeRegistro);
+        // Registrar como argumentos.
+        frag.setArguments(argumentos);
+        return frag;
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_tab_registro);
+        // Desempacar bundle y extraer nombre de usuario activo.
+        activeRegistro=getArguments().getString("activeRegistro");
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflar fragmento
+        View view = inflater.inflate(R.layout.fragment_tab_registro, container, false);
+        // Inicializar fragmento
+        initRegistroFragment(container,view);
+
+        return view;
+    }
+
+    private void initRegistroFragment(ViewGroup container, View view){
 
         // Instanciar botones y controles
-        txId= findViewById(R.id.txID);
-        txDescriptores = findViewById(R.id.txDescriptores);
-        txDescriptoren = findViewById(R.id.txDescriptoren);
-        txOemsku = findViewById(R.id.txOemsku);
-        txdescriptorExtra = findViewById(R.id.txdescriptorExtra);
-        txnomArchivo = findViewById(R.id.txnomArchivo);
-        txnomEntregable = findViewById(R.id.txnomEntregable);
-        spExtensionWin = findViewById(R.id.spExtesionWin);
-        spTipoDocumentos = findViewById(R.id.spTipoDocumentos);
-        spProyecto = findViewById(R.id.spProyecto);
-        btLimpiar = findViewById(R.id.btLimpiar);
-        btModificar = findViewById(R.id.btModificar);
-        btNuevo = findViewById(R.id.btNuevo);
-        btAceptar = findViewById(R.id.btAceptar);
-        btCancelar = findViewById(R.id.btCancelar);
+
+        TextView txId=view.findViewById(R.id.txID);
+        TextView txDescriptores=view.findViewById(R.id.txDescriptores);
+        TextView txDescriptoren=view.findViewById(R.id.txDescriptoren);
+        TextView txOemsku=view.findViewById(R.id.txOemsku);
+        TextView txdescriptorExtra=view.findViewById(R.id.txdescriptorExtra);
+        TextView txnomArchivo=view.findViewById(R.id.txnomArchivo);
+        TextView txnomEntregable=view.findViewById(R.id. txnomEntregable);
+        Spinner spExtensionWin=view.findViewById(R.id.spExtesionWin);
+        Spinner spTipoDocumentos=view.findViewById(R.id.spTipoDocumentos);
+        Spinner spProyecto=view.findViewById(R.id.spProyecto);
+        btLimpiar= (Button) view.findViewById(R.id.btLimpiar);
+        btModificar= (Button) view.findViewById(R.id.btModificar);
+        btNuevo= (Button) view.findViewById(R.id.btNuevo);
+        btAceptar= (Button) view.findViewById(R.id.btAceptar);
+        btCancelar = (Button) view.findViewById(R.id.btCancelar);
+        Imgbtbuscar = (ImageButton) view.findViewById(R.id.Imgbtbuscar);
+
+
+        Imgbtbuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Volcar el propertybundle que corresponde al id existente.
+                volcarPbEnForm();
+            }
+        });
+
 
         btNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,24 +149,24 @@ public class fragmentRegistro extends AppCompatActivity {
                     if (updateRecord())
                     {
                         // Registro modificado exitosamente
-                        errorHandler.Toaster(enumMensajes.registroModificado,fragmentRegistro.this);
+                       // errorHandler.Toaster(enumMensajes.registroModificado,fragmentRegistro.this);
                     }
                     else
                     {
                         //Error en la transaccion
-                        errorHandler.Toaster(enumMensajes.errorSQL,fragmentRegistro.this);
+                       // errorHandler.Toaster(enumMensajes.errorSQL,fragmentRegistro.this);
                     }
                 }
                 else
                 {
                     if (addRecord())
                     {
-                        errorHandler.Toaster(enumMensajes.registroExitoso,fragmentRegistro.this);
+                        //errorHandler.Toaster(enumMensajes.registroExitoso,fragmentRegistro.this);
                     }
                     else
                     {
                         //Error en la transaccion
-                        errorHandler.Toaster(enumMensajes.errorSQL,fragmentRegistro.this);
+                       // errorHandler.Toaster(enumMensajes.errorSQL,fragmentRegistro.this);
                     }
                 }
                 //Destruir pb
@@ -122,6 +179,7 @@ public class fragmentRegistro extends AppCompatActivity {
     DAO dao = new DAO(fragmentRegistro.this);
     queryDump q = new queryDump();
     propertyBundle pb=new propertyBundle();
+
 
 
     //region EventHandlers
@@ -155,6 +213,7 @@ public class fragmentRegistro extends AppCompatActivity {
         btCancelar.setEnabled(modo);
         btModificar.setEnabled(!modo);
         btNuevo.setEnabled(!modo);
+        Imgbtbuscar.setEnabled(false);
     }
 
     private void actualizarForm() {

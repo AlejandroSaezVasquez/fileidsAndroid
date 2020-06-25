@@ -20,26 +20,37 @@ tools:context=".fragmentRegistro">
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="240dp"
+                    android:layout_width="199dp"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="ID"
                     android:textColor="#0F0F0F"
-                    android:textSize="18sp"
-                    android:layout_marginLeft="20dp"/>
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/txID"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/input_shape"
                     android:ems="10"
-                    android:textColor="#fff"
-                    android:paddingLeft="20dp" />
+                    android:paddingLeft="0dp"
+                    android:textColor="#fff" />
+
+                <ImageButton
+                    android:id="@+id/Imgbtbuscar"
+                    android:layout_width="123dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="#8BC34A"
+                    android:src="@android:drawable/ic_search_category_default" />
 
             </LinearLayout>
 
