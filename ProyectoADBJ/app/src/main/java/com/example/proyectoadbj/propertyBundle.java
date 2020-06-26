@@ -1,5 +1,7 @@
 package com.example.proyectoadbj;
 
+import java.text.DecimalFormat;
+
 public class propertyBundle {
 
     // Bundle de propiedades personalizadas.
@@ -112,15 +114,12 @@ public class propertyBundle {
     {
         if (id!=null)
         {
-            /// Buscar forma de retornar valor formateado.
-            ///1   000-001     1560   001-560
-            String strId=id;
-            strId=String.format("%06s", strId);
-            //return String.format("%06s", inputString)
-            //return id.PadLeft(6, '0').Insert(3, "-");  Reemplazar esta funcion.
+            //Creación de un formato con separadores de decimales y millares, con 3 decimales
+            DecimalFormat formato = new DecimalFormat("000.000");
+            String valorFormateado = formato.format(123.456);
+            //Muestra en pantalla el valor 123.456.
         }
         return "";
-
 
     }
 }

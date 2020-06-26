@@ -180,13 +180,7 @@ public class fragmentRegistro extends Fragment {
     queryDump q = new queryDump();
     propertyBundle pb=new propertyBundle();
 
-
-
     //region EventHandlers
-
-
-
-
 
 
     //endregion

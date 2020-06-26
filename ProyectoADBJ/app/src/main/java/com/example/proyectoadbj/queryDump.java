@@ -76,24 +76,9 @@ public class queryDump {
          return "exec getNombreEntregable '" + id + "'";
     }
 
-    public String execCargarRuta(Ruta ruta)
-    {
-         return "exec cargarRuta '" + ruta.getIdArchivo() + "','" + ruta.getStrRuta() + "','" + ruta.getRevLevel() + "','" + ruta.getMd5() + "'";
-    }
-
     public String execGetRevisionLevelFromId(String id)
     {
          return "exec GetRevisionLevelFromId '" + id + "'";
-    }
-
-    public String execBorrarRuta(Ruta ruta)
-    {
-         return "exec borrarRuta '" + ruta.getIdArchivo() + "','" + ruta.getRevLevel() + "'";
-    }
-
-    public String execGetRutaDesdeId(Ruta ruta)
-    {
-         return "exec obtenerRutaDesdeId '" + ruta.getIdArchivo()+ "','" + ruta.getRevLevel() + "'";
     }
 
     public String execGetArchivosLocalesLike(String keywords)
